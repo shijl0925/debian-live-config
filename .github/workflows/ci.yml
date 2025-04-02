@@ -1,0 +1,20 @@
+name: "Build Debian Live Minimal ISO"
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: "Checking out git repository"
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 0 # full history must be fetched for git tag detection mechanism in Makefile to work
+
+        - name: "Build Image"
+          run: |
+            make
