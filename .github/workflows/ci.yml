@@ -17,4 +17,4 @@ jobs:
 
         - name: "Build Image"
           run: |
-            make
+            make docker_compose
